@@ -113,7 +113,6 @@ while True:
     if answer == 'y':
         os.execl(sys.executable, sys.executable, *sys.argv)
     else:
-        print("Tschüss.")
         break
 
 ################################################################    ENDE    ################################################################
