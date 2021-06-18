@@ -1,10 +1,11 @@
+################################################################    imports
 import sys, os
-import math 
+import math
 from colorama import Fore,  Style
 from colorama import init
 init()
 
-#clearconsole
+################################################################    clearconsole
 def clearConsole():
     command = 'clear'
     if os.name in ('nt', 'dos'):  # If Machine is running on Windows, use cls
@@ -13,7 +14,7 @@ def clearConsole():
 
 clearConsole()
 
-#rechenart auswahl
+################################################################    rechenart auswahl
 while True:
     try:
         print(Style.BRIGHT + Fore.BLUE + "1. Addition")
@@ -23,7 +24,8 @@ while True:
         print("5. Potenzen")
         print("6. Quadratwurzel")
         print()
-        rechenart = int(input("Wähle deine Rechenart."))
+        print("Wähle deine Rechenart.")
+        rechenart = int(input(Fore.WHITE + "USER: "))
         if rechenart not in (1, 2, 3, 4, 5, 6):
             raise ValueError
         break
@@ -33,10 +35,11 @@ while True:
         print()
 clearConsole()
 
-#werte abfrage
+################################################################    werte abfrage
 while True:
     try:
-        wert1 = float(input(Style.BRIGHT + Fore.BLUE + "Gebe den ersten Wert ein."))
+        print(Style.BRIGHT + Fore.BLUE + "Gebe den ersten Wert ein.")
+        wert1 = float(input(Fore.WHITE + "USER: "))
         break
     except ValueError:
         clearConsole()
@@ -46,10 +49,11 @@ while True:
 clearConsole()
 
 wert2 = 1
-if rechenart < 5:
+if rechenart < 6:
     while True:
         try: 
-            wert2 = float(input(Style.BRIGHT + Fore.BLUE + "Gebe den zweiten Wert ein."))
+            print(Style.BRIGHT + Fore.BLUE + "Gebe den zweiten Wert ein.")
+            wert2 = float(input(Fore.WHITE + "USER: "))
             break
         except ValueError:
             clearConsole()
@@ -58,7 +62,7 @@ if rechenart < 5:
 
 clearConsole()
 
-#rechnung
+################################################################    rechnung
 ergebnis_add = wert1 + wert2
 ergebnis_sub = wert1 - wert2
 ergebnis_mul = wert1 * wert2
@@ -66,28 +70,28 @@ ergebnis_div = wert1 / wert2
 ergebnis_pot = wert1 ** wert2
 ergebnis_wur = math.sqrt(wert1)
 
-#output
+################################################################    output 
 if rechenart == 1:
-    print(Fore.GREEN,wert1, "+", wert2, "=", ergebnis_add)
+    print(Fore.WHITE,wert1, "+", wert2, "=",Fore.GREEN, ergebnis_add)
 
 if rechenart == 2:
-    print(Fore.GREEN,wert1, "-", wert2, "=", ergebnis_sub)
+    print(Fore.WHITE,wert1, "-", wert2, "=",Fore.GREEN, ergebnis_sub)
 
 if rechenart == 3:
-    print(Fore.GREEN,wert1, "x", wert2, "=", ergebnis_mul)
+    print(Fore.WHITE,wert1, "x", wert2, "=",Fore.GREEN, ergebnis_mul)
 
 if rechenart == 4:
-    print(Fore.GREEN,wert1, ":", wert2, "=", ergebnis_div)
+    print(Fore.WHITE,wert1, ":", wert2, "=",Fore.GREEN, ergebnis_div)
 
 if rechenart == 5:
-    print(Fore.GREEN,wert1, "hoch", wert2, "=", ergebnis_pot)
+    print(Fore.WHITE,wert1, "hoch", wert2, "=",Fore.GREEN, ergebnis_pot)
 
 if rechenart == 6:
-    print(Fore.GREEN,"Die Quadratwurzel aus", wert1, "ist", ergebnis_wur)
+    print(Fore.WHITE,"Die Quadratwurzel aus", wert1, "ist",Fore.GREEN, ergebnis_wur)
 
 print()
 
-#restart?
+################################################################    restart?
 while True:
     while True:
         answer = str(input(Fore.LIGHTMAGENTA_EX + "Neu starten? (y/n): "))
@@ -101,3 +105,5 @@ while True:
     else:
         print("Tschüss.")
         break
+
+################################################################    ENDE    ################################################################
