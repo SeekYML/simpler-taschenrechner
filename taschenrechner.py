@@ -1,8 +1,6 @@
 ################################################################    imports
-import sys, os
-import math
-from colorama import Fore,  Style
-from colorama import init
+import sys, os, math
+from colorama import Fore,  Style, init
 init()
 
 ################################################################    clearconsole
@@ -38,6 +36,7 @@ while True:
 clearConsole()
 
 ################################################################    werte abfrage
+
 while True:
     try:
         print(Style.BRIGHT + Fore.BLUE + "Gebe den ersten Wert ein. (x)")
@@ -51,7 +50,7 @@ while True:
 clearConsole()
 
 wert2 = 1
-if rechenart == 6 or 7:
+if rechenart < 6 or rechenart == 8:
     while True:
         try: 
             print(Style.BRIGHT + Fore.BLUE + "Gebe den zweiten Wert ein. (n)")
