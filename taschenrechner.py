@@ -1,13 +1,16 @@
-################################################################    imports
+################################################################    imports               
+
 import os, math
 from colorama import Fore,  Style, init
 init()
 
 ################################################################    gui
-cmd = 'mode 67,13'
+
+cmd = 'mode 67,14'
 os.system(cmd)
 
 ################################################################    clearconsole
+
 def clearConsole():
     command = 'clear'
     if os.name in ('nt', 'dos'):  # If Machine is running on Windows, use cls
@@ -17,9 +20,10 @@ def clearConsole():
 clearConsole()
 
 ################################################################    rechenart auswahl
+
 while True:
     try:
-        print(Style.BRIGHT + Fore.BLUE + " 1. Addition")
+        print(Fore.LIGHTBLUE_EX + " 1. Addition")
         print(" 2. Subtraktion")
         print(" 3. Multiplikation")
         print(" 4. Divison")
@@ -27,30 +31,34 @@ while True:
         print(" 6. Quadratwurzel")
         print(" 7. Kubikwurzel")
         print(" 8. N-te Wurzel")
-        #EXIT OPTION?
+        print(" 9. Taschenrechner schließen")
+        print(Fore.LIGHTCYAN_EX + " Wähle die Rechenart aus.")
         print()
-        print(" Wähle die Rechenart aus.")
-        rechenart = int(input(Fore.WHITE + " USER: "))
-        if rechenart not in (1, 2, 3, 4, 5, 6, 7, 8):
+        rechenart = int(input(Fore.WHITE + Style.DIM + " USER: " + Style.BRIGHT))
+        if rechenart not in (1, 2, 3, 4, 5, 6, 7, 8, 9):
             raise ValueError
         break
     except ValueError:
         clearConsole()
-        print(Fore.RED + " ERROR: Falscher Input.")
+        print(Fore.RED + Style.BRIGHT + " ERROR: Falscher Input.")
         print()
 clearConsole()
 
 ################################################################    werte abfrage
 
-while True:
-    try:
-        print(Style.BRIGHT + Fore.BLUE + " Gebe den ersten Wert ein. (x)")
-        wert1 = float(input(Fore.WHITE + " USER: "))
-        break
-    except ValueError:
-        clearConsole()
-        print(Fore.RED + " ERROR: Falscher Input.")
-        print()
+if rechenart == 9:
+    exit(0)
+
+if rechenart < 9:
+    while True:
+        try:
+            print(Style.BRIGHT + Fore.BLUE + " Gebe den ersten Wert ein. (x)")
+            wert1 = float(input(Fore.WHITE + Style.DIM + " USER: " + Style.BRIGHT))
+            break
+        except ValueError:
+            clearConsole()
+            print(Fore.RED + " ERROR: Falscher Input.")
+            print()
 
 clearConsole()
 
@@ -59,7 +67,7 @@ if rechenart < 6 or rechenart == 8:
     while True:
         try: 
             print(Style.BRIGHT + Fore.BLUE + " Gebe den zweiten Wert ein. (n)")
-            wert2 = float(input(Fore.WHITE + " USER: "))
+            wert2 = float(input(Fore.WHITE + Style.DIM + " USER: " + Style.BRIGHT))
             break
         except ValueError:
             clearConsole()
@@ -69,6 +77,7 @@ if rechenart < 6 or rechenart == 8:
 clearConsole()
 
 ################################################################    rechnung
+
 ergebnis_add = wert1 + wert2
 ergebnis_sub = wert1 - wert2
 ergebnis_mul = wert1 * wert2
@@ -79,6 +88,7 @@ ergebnis_kwu = wert1**(1/3)
 ergebnis_nwu = wert1**(1/float(wert2))
 
 ################################################################    output 
+
 if rechenart == 1:
     print(Fore.WHITE,wert1, "+", wert2, "=",Fore.GREEN,ergebnis_add)
 
@@ -106,9 +116,10 @@ if rechenart == 8:
 print()
 
 ################################################################    restart?
+
 while True:
     while True:
-        answer = str(input(Fore.LIGHTMAGENTA_EX + " Neu starten? (y/n): " + Fore.MAGENTA))
+        answer = str(input(Fore.MAGENTA + " Neu starten? (y/n): " + Fore.LIGHTMAGENTA_EX))
         if answer in ('y', 'n'):
             break
         clearConsole()
