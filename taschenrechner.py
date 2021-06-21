@@ -1,8 +1,10 @@
-################################################################    imports               
+###############################################################################
+#Diese Version beinhaltet keine Farben, wie auch den Dateipfad Fix            #
+#aufgrund von Kombabilitätsproblemen mit repl.it und des Ersparen von         #
+#herunterladen von Colorama nicht.                                            #
+################################################################    imports   #               
 
-import os, math
-from colorama import Fore,  Style, init
-init()
+import os, sys, math
 
 ################################################################    gui
 
@@ -25,7 +27,7 @@ clearConsole()
 
 while True:
     try:
-        print(Fore.LIGHTBLUE_EX + " 1. Addition")
+        print(" 1. Addition")
         print(" 2. Subtraktion")
         print(" 3. Multiplikation")
         print(" 4. Divison")
@@ -34,15 +36,15 @@ while True:
         print(" 7. Kubikwurzel")
         print(" 8. N-te Wurzel")
         print(" 9. Taschenrechner schließen")
-        print(Fore.LIGHTCYAN_EX + " Wähle die Rechenart aus.")
+        print(" Wähle die Rechenart aus.")
         print()
-        rechenart = int(input(Fore.WHITE + Style.DIM + " USER: " + Style.BRIGHT))
+        rechenart = int(input(" USER: "))
         if rechenart not in (1, 2, 3, 4, 5, 6, 7, 8, 9):
             raise ValueError
         break
     except ValueError:
         clearConsole()
-        print(Fore.RED + Style.BRIGHT + " ERROR: Falscher Input.")
+        print(" ERROR: Falscher Input.")
         print()
 clearConsole()
 
@@ -54,12 +56,12 @@ if rechenart == 9:
 if rechenart < 9:
     while True:
         try:
-            print(Style.BRIGHT + Fore.BLUE + " Gebe den ersten Wert ein. (x)")
-            wert1 = float(input(Fore.WHITE + Style.DIM + " USER: " + Style.BRIGHT))
+            print(" Gebe den ersten Wert ein. (x)")
+            wert1 = float(input(" USER: "))
             break
         except ValueError:
             clearConsole()
-            print(Fore.RED + " ERROR: Falscher Input.")
+            print(" ERROR: Falscher Input.")
             print()
 
 clearConsole()
@@ -68,12 +70,12 @@ wert2 = 1
 if rechenart < 6 or rechenart == 8:
     while True:
         try: 
-            print(Style.BRIGHT + Fore.BLUE + " Gebe den zweiten Wert ein. (n)")
-            wert2 = float(input(Fore.WHITE + Style.DIM + " USER: " + Style.BRIGHT))
+            print(" Gebe den zweiten Wert ein. (n)")
+            wert2 = float(input(" USER: "))
             break
         except ValueError:
             clearConsole()
-            print(Fore.RED + " ERROR: Falscher Input.")
+            print(" ERROR: Falscher Input.")
             print()
 
 clearConsole()
@@ -92,28 +94,28 @@ ergebnis_nwu = wert1**(1/float(wert2))
 ################################################################    output 
 
 if rechenart == 1:
-    print(Fore.WHITE,wert1, "+", wert2, "=",Fore.GREEN,ergebnis_add)
+    print(wert1, "+", wert2, "=",ergebnis_add)
 
 if rechenart == 2:
-    print(Fore.WHITE,wert1, "-", wert2, "=",Fore.GREEN,ergebnis_sub)
+    print(wert1, "-", wert2, "=",ergebnis_sub)
 
 if rechenart == 3:
-    print(Fore.WHITE,wert1, "x", wert2, "=",Fore.GREEN,ergebnis_mul)
+    print(wert1, "x", wert2, "=",ergebnis_mul)
 
 if rechenart == 4:
-    print(Fore.WHITE,wert1, ":", wert2, "=",Fore.GREEN,ergebnis_div)
+    print(wert1, ":", wert2, "=",ergebnis_div)
 
 if rechenart == 5:
-    print(Fore.WHITE,wert1, "hoch", wert2, "=",Fore.GREEN,ergebnis_pot)
+    print(wert1, "hoch", wert2, "=",ergebnis_pot)
 
 if rechenart == 6:
-    print(Fore.WHITE,"Die Quadratwurzel aus", wert1, "ist",Fore.GREEN,ergebnis_qwu)
+    print("Die Quadratwurzel aus", wert1, "ist",ergebnis_qwu)
 
 if rechenart == 7:
-    print(Fore.WHITE,"Die Kubikwurzel aus", wert1, "ist",Fore.GREEN,ergebnis_kwu)
+    print("Die Kubikwurzel aus", wert1, "ist",ergebnis_kwu)
 
 if rechenart == 8:
-    print(Fore.WHITE,"Die", wert2,"-te Wurzel aus", wert1, "ist",Fore.GREEN,ergebnis_nwu)
+    print("Die", wert2,"-te Wurzel aus", wert1, "ist",ergebnis_nwu)
 
 print()
 
@@ -121,16 +123,16 @@ print()
 
 while True:
     while True:
-        answer = str(input(Fore.MAGENTA + " Neu starten? (y/n): " + Fore.LIGHTMAGENTA_EX))
+        answer = str(input(" Neu starten? (y/n): "))
         if answer in ('y', 'n'):
             break
         clearConsole()
-        print(Fore.RED + " ERROR: Falscher Input.")
+        print(" ERROR: Falscher Input.")
         print()
     if answer == 'y':
-        os.system("taschenrechner.py")
-        exit()
+        print("Restarting ...")
+        os.execl(sys.executable, sys.executable, *sys.argv)
     else:
         exit()
 
-################################################################    ENDE    ################################################################
+################################################################    ENDE    
