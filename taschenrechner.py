@@ -6,6 +6,8 @@ init()
 
 ################################################################    gui
 
+os.system("title Simpler Taschenrechner")
+
 cmd = 'mode 67,14'
 os.system(cmd)
 
