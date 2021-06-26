@@ -1,7 +1,7 @@
 ###############################################################################
-#Diese Version beinhaltet keine Farben, wie auch den Dateipfad Fix            #
-#aufgrund von Kombabilitätsproblemen mit repl.it und des Ersparen von         #
-#herunterladen von Colorama nicht.                                            #
+#Diese Version beinhaltet keine Farben, wie auch den Dateipfad Fix und die    #
+#Restart-Funktion und die clearConsole() Funktion aufgrund von                #
+#Kombabilitätsproblemen mit WebTigerJython nicht.                             #
 ################################################################    imports   #               
 
 import math
