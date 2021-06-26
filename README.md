@@ -1,3 +1,3 @@
 # simpler-taschenrechner
 
-### Um den Taschenrechner zu verwenden, musst du [Colorama](https://pypi.org/project/colorama/) installieren. Funktioniert NUR mit Windows.
+### Mit [WebTigerJython](https://webtigerjython.ethz.ch/) kompatibel.
